@@ -1,5 +1,4 @@
-
-#include <stdio.h>
+#include "map.h"
 
 int		**parse_map(char *str);
 
@@ -28,21 +27,20 @@ int	up_left(int x_pos, int y_pos, int **map)
 	return (map[y_pos - 1][x_pos - 1] + 1);
 }
 
-int	solve(int **map)
+int	solve(t_map main)
 {
 	int	x_pos;
 	int	y_pos;
 
 	x_pos = 0;
 	y_pos = 0;
-	while (map[y_pos])
+	while (y_pos < main.row_len)
 	{
 		x_pos = 0;
-		while (map[y_pos][x_pos])
+		while (x_pos < main.col_len)
 		{
-			if (map[y_pos][x_pos] == 0)
-				map[y_pos][x_pos] = up_left(x_pos, y_pos, map);
-			printf("%d ", map[y_pos][x_pos]);
+			if (main.map[y_pos][x_pos] == 0)
+				main.map[y_pos][x_pos] = up_left(x_pos, y_pos, main.map);
 			x_pos++;
 		}
 		y_pos++;
@@ -50,20 +48,20 @@ int	solve(int **map)
 	return (1);
 }
 
-#include <stdio.h>
-#include <stdlib.h>
+// #include <stdio.h>
+// #include <stdlib.h>
 
-void	print_map(int **map, int rows, int cols)
-{
-	for (int i = 0; i < rows; i++)
-	{
-		for (int j = 0; j < cols; j++)
-		{
-			printf("%d ", map[i][j]);
-		}
-		printf("\n");
-	}
-}
+// void	print_map(int **map, int rows, int cols)
+// {
+// 	for (int i = 0; i < rows; i++)
+// 	{
+// 		for (int j = 0; j < cols; j++)
+// 		{
+// 			printf("%d ", map[i][j]);
+// 		}
+// 		printf("\n");
+// 	}
+// }
 
 /* int	main(void) */
 /* { */
