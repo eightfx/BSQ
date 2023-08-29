@@ -6,7 +6,7 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 13:44:48 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/29 15:07:59 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/29 16:43:41 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "map.h"
@@ -14,15 +14,38 @@
 #include <stdlib.h>
 #include <string.h>
 
-char		*ft_strchr(const char *s, int c);
+char	*ft_strchr(char *s, int c);
+char	*ft_strncpy(char *dest, char *src, size_t n);
+void	print_map_matrix(t_map parsed_map);
+void	print_map_info(t_map parsed_map);
+int		ft_atoi(char *str);
 
-static void	parse_header(char *str, t_map *map)
+void	parse_header(char *str, t_map *map)
 {
-	sscanf(str, "%d%c%c%c", &map->row_len, &map->empty, &map->obstacle,
-		&map->full);
+	char	*ptr;
+	char	row_str[100];
+	int		len;
+
+	ptr = str;
+	while (*ptr != '\n' && *ptr != '\0')
+	{
+		ptr++;
+	}
+	len = ptr - str;
+	if (len < 4)
+	{
+		printf("map error\n");
+		exit(1);
+	}
+	map->full = str[len - 1];
+	map->obstacle = str[len - 2];
+	map->empty = str[len - 3];
+	ft_strncpy(row_str, str, len - 3);
+	row_str[len - 3] = '\0';
+	map->row_len = ft_atoi(str);
 }
 
-static void	create_empty_map_array(t_map *map, int col_len)
+void	create_empty_map_array(t_map *map, int col_len)
 {
 	int	i;
 
@@ -35,7 +58,7 @@ static void	create_empty_map_array(t_map *map, int col_len)
 	}
 }
 
-static void	fill_map_array(char *str, t_map *map)
+void	fill_map_array(char *str, t_map *map)
 {
 	char	*ptr;
 	int		row;
@@ -71,7 +94,7 @@ t_map	parse_map(char *str)
 
 	header_end = ft_strchr(str, '\n');
 	parse_header(str, &parsed_map);
-	parsed_map.col_len = strlen(header_end + 1) / parsed_map.row_len;
+	parsed_map.col_len = strlen(header_end + 1) / parsed_map.row_len - 1;
 	create_empty_map_array(&parsed_map, parsed_map.col_len);
 	fill_map_array(str, &parsed_map);
 	return (parsed_map);
