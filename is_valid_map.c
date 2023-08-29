@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char	*ft_strchr(const char *s, int c);
+char	*ft_strchr(char *s, int c);
 
 char	*skip_header(char *str)
 {

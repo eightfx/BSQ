@@ -6,7 +6,7 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 13:44:48 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/29 15:07:59 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/29 15:15:48 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "map.h"
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char		*ft_strchr(const char *s, int c);
+char		*ft_strchr(char *s, int c);
 
 static void	parse_header(char *str, t_map *map)
 {
@@ -71,7 +71,7 @@ t_map	parse_map(char *str)
 
 	header_end = ft_strchr(str, '\n');
 	parse_header(str, &parsed_map);
-	parsed_map.col_len = strlen(header_end + 1) / parsed_map.row_len;
+	parsed_map.col_len = strlen(header_end + 1) / parsed_map.row_len - 1;
 	create_empty_map_array(&parsed_map, parsed_map.col_len);
 	fill_map_array(str, &parsed_map);
 	return (parsed_map);
