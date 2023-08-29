@@ -3,9 +3,12 @@
 
 typedef struct t_map
 {
-	int	row_len;
-	int	col_len;
-	int	**map;
-}		t_map;
+	int		row_len;
+	int		col_len;
+	char	empty;
+	char	obstacle;
+	char	full;
+	int		**map;
+}			t_map;
 
 #endif // MAP_H
