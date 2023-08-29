@@ -6,13 +6,15 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 13:44:48 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/29 13:51:31 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/29 15:07:59 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "map.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+char		*ft_strchr(const char *s, int c);
 
 static void	parse_header(char *str, t_map *map)
 {
@@ -39,7 +41,7 @@ static void	fill_map_array(char *str, t_map *map)
 	int		row;
 	int		col;
 
-	ptr = strchr(str, '\n') + 1;
+	ptr = ft_strchr(str, '\n') + 1;
 	row = 0;
 	col = 0;
 	while (*ptr != '\0')
@@ -67,7 +69,7 @@ t_map	parse_map(char *str)
 	t_map	parsed_map;
 	char	*header_end;
 
-	header_end = strchr(str, '\n');
+	header_end = ft_strchr(str, '\n');
 	parse_header(str, &parsed_map);
 	parsed_map.col_len = strlen(header_end + 1) / parsed_map.row_len;
 	create_empty_map_array(&parsed_map, parsed_map.col_len);

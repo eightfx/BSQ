@@ -9,6 +9,8 @@ void	create_square(t_map main);
 int		solve(t_map main);
 char	*read_file_into_str(char *path);
 
+void	get_answer(t_map square_map);
+
 int	main(void)
 {
 	char	*str;
@@ -16,11 +18,9 @@ int	main(void)
 
 	str = read_file_into_str("map.txt");
 	map = parse_map(str);
-	print_map_matrix(map);
+	get_answer(map);
 	printf("\n\n");
 	solve(map);
-	print_map_matrix(map);
-	printf("\n\n");
 	create_square(map);
-	print_map_matrix(map);
+	get_answer(map);
 }

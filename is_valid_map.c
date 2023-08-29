@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+char	*ft_strchr(const char *s, int c);
+
 char	*skip_header(char *str)
 {
 	char	*ptr;
 
-	ptr = strchr(str, '\n');
+	ptr = ft_strchr(str, '\n');
 	return ((ptr != NULL) ? (ptr + 1) : NULL);
 }
 
@@ -17,7 +19,7 @@ int	is_at_least_one_row(char *str)
 	new_str = skip_header(str);
 	if (new_str == NULL)
 		return (0);
-	return (strchr(new_str, '\n') != NULL);
+	return (ft_strchr(new_str, '\n') != NULL);
 }
 
 int	is_newline_at_end(char *str)
