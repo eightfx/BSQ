@@ -1,3 +1,4 @@
+#include "map.h"
 #include <unistd.h>
 
 void	ft_putchartekina(int x_pos, int y_pos, t_map square_map)
@@ -10,7 +11,7 @@ void	ft_putchartekina(int x_pos, int y_pos, t_map square_map)
 		write(1, &square_map.empty, 1);
 }
 
-void get_answer(t_map square_map)
+void	get_answer(t_map square_map)
 {
 	int	x_pos;
 	int	y_pos;
