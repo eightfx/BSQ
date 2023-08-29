@@ -50,7 +50,7 @@ void	ft_drawsquare(t_map main, int flag_x, int flag_y, int flag)
 	}
 }
 
-int create_square(t_map main)
+void create_square(t_map main)
 {
 	int flag_x;
 	int flag_y;
@@ -59,6 +59,6 @@ int create_square(t_map main)
 	flag_x = -1;
 	flag_y = -1;
 	flag = ft_searchmax(main, &flag_x, &flag_y);
-	ft_drawsquare(main.map, flag_x, flag_y, flag);
-	return (1);
+	ft_drawsquare(main, flag_x, flag_y, flag);
+	return ;
 }
