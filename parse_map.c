@@ -7,7 +7,7 @@ int	ft_strlen(char *str)
 	int	length;
 
 	length = 0;
-	while (*str != '\0')
+	while (*str != '\0' && *str != '\n')
 	{
 		length++;
 		str++;
@@ -21,7 +21,7 @@ void	parse_header(char *str, int *rows, char *empty_char,
 	sscanf(str, "%d%c%c", rows, empty_char, obstacle_char);
 }
 
-int	**create_empty_array(int rows)
+int	**create_empty_array(int rows, int cols)
 {
 	int	**array;
 	int	i;
@@ -30,7 +30,7 @@ int	**create_empty_array(int rows)
 	i = 0;
 	while (i < rows)
 	{
-		array[i] = malloc(rows * sizeof(int));
+		array[i] = malloc(cols * sizeof(int));
 		i++;
 	}
 	return (array);
@@ -77,6 +77,7 @@ int	**parse_map(char *str)
 {
 	int	rows;
 	int	**array;
+	int	cols;
 
 	char empty_char, obstacle_char;
 	// Parse the header to get rows, empty_char, and obstacle_char
@@ -84,41 +85,43 @@ int	**parse_map(char *str)
 	printf("obstacle_char: %c\n", obstacle_char);
 	printf("empty_char: %c\n", empty_char);
 	// Create an empty 2D array based on the number of rows
-	array = create_empty_array(rows);
+	cols = ft_strlen(str);
+	printf("rows: %d\n", rows);
+	array = create_empty_array(rows, cols);
 	// Fill the array based on the map string
 	fill_array(array, str, empty_char, obstacle_char);
 	return (array);
 }
 
-/* int	main(void) */
-/* { */
-/* 	char	*str; */
-/* 	int		**map; */
-/* 	int		i; */
-/* 	int		j; */
+int	main(void)
+{
+	char	*str;
+	int		**map;
+	int		i;
+	int		j;
 
-/* 	str = "10.ox\n....o..o..\n...o......\n....o...o.\n.........o\n..o......o\n..o.o...o.\n.o........\n....o.o.o.\nooo...o...\n.......o.o\n"; */
-/* 	map = parse_map(str); */
-/* 	// 確認用: 2次元配列を出力 */
-/* 	i = 0; */
-/* 	while (i < 10) */
-/* 	{ */
-/* 		j = 0; */
-/* 		while (j < 10) */
-/* 		{ */
-/* 			printf("%d ", map[i][j]); */
-/* 			j++; */
-/* 		} */
-/* 		printf("\n"); */
-/* 		i++; */
-/* 	} */
-/* 	// メモリ解放 */
-/* 	i = 0; */
-/* 	while (i < 10) */
-/* 	{ */
-/* 		free(map[i]); */
-/* 		i++; */
-/* 	} */
-/* 	free(map); */
-/* 	return (0); */
-/* } */
+	str = "10.ox\n.....o..o..\n....o......\n....o...o.\n..........o\n...o......o\n...o.o...o.\n..o........\n.....o.o.o.\n.ooo...o...\n........o.o\n";
+	map = parse_map(str);
+	// 確認用: 2次元配列を出力
+	i = 0;
+	while (i < 10)
+	{
+		j = 0;
+		while (j < 11)
+		{
+			printf("%d ", map[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+	// メモリ解放
+	i = 0;
+	while (i < 10)
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+	return (0);
+}

@@ -1,4 +1,6 @@
 
+#include <stdio.h>
+
 int		**parse_map(char *str);
 
 int	this_is_boundry(int x_pos, int y_pos)
@@ -40,6 +42,7 @@ int	solve(int **map)
 		{
 			if (map[y_pos][x_pos] == 0)
 				map[y_pos][x_pos] = up_left(x_pos, y_pos, map);
+			printf("%d ", map[y_pos][x_pos]);
 			x_pos++;
 		}
 		y_pos++;
@@ -62,13 +65,13 @@ void	print_map(int **map, int rows, int cols)
 	}
 }
 
-int	main(void)
-{
-	char	*str;
-	int		**map;
+/* int	main(void) */
+/* { */
+/* 	char	*str; */
+/* 	int		**map; */
 
-	str = "10.ox\n....o..o..\n...o......\n....o...o.\n.........o\n..o......o\n..o.o...o.\n.o........\n....o.o.o.\nooo...o...\n.......o.o\n";
-	map = parse_map(str);
-	solve(map);
-	print_map(map, 10, 10);
-}
+/* 	str = "10.ox\n....o..o..\n...o......\n....o...o.\n.........o\n..o......o\n..o.o...o.\n.o........\n....o.o.o.\nooo...o...\n.......o.o\n"; */
+/* 	map = parse_map(str); */
+/* 	solve(map); */
+/* 	print_map(map, 10, 10); */
+/* } */
