@@ -1,6 +1,5 @@
 #include "map.h"
 
-void	print_map_matrix(t_map parsed_map);
 t_map	parse_map(char *str);
 
 int	this_is_boundry(int x_pos, int y_pos)
@@ -47,32 +46,4 @@ int	solve(t_map main)
 		y_pos++;
 	}
 	return (1);
-}
-
-#include <stdio.h>
-#include <stdlib.h>
-
-void	print_map(int **map, int rows, int cols)
-{
-	for (int i = 0; i < rows; i++)
-	{
-		for (int j = 0; j < cols; j++)
-		{
-			printf("%d ", map[i][j]);
-		}
-		printf("\n");
-	}
-}
-
-int	main(void)
-{
-	char	*str;
-	t_map	map;
-
-	str = "10.ox\n....o..o..\n...o......\n....o...o.\n.........o\n..o......o\n..o.o...o.\n.o........\n....o.o.o.\nooo...o...\n.......o.o\n";
-	map = parse_map(str);
-	print_map_matrix(map);
-	printf("\n\n");
-	solve(map);
-	print_map_matrix(map);
 }
