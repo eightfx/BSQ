@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_square.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/29 16:45:55 by eokoshi           #+#    #+#             */
+/*   Updated: 2023/08/29 16:45:56 by eokoshi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "map.h"
 
 int	ft_searchmax(t_map main, int *flag_x, int *flag_y)
@@ -39,8 +50,8 @@ void	ft_drawsquare(t_map main, int flag_x, int flag_y, int flag)
 		x_pos = 0;
 		while (x_pos < main.col_len)
 		{
-			if (flag_x - flag < x_pos && x_pos <= flag_x
-				&& flag_y - flag < y_pos && y_pos <= flag_y)
+			if (flag_x - flag < x_pos && x_pos <= flag_x && flag_y
+				- flag < y_pos && y_pos <= flag_y)
 				main.map[y_pos][x_pos] = 1;
 			else if (main.map[y_pos][x_pos] != -1)
 				main.map[y_pos][x_pos] = 0;
@@ -50,11 +61,11 @@ void	ft_drawsquare(t_map main, int flag_x, int flag_y, int flag)
 	}
 }
 
-int create_square(t_map main)
+int	create_square(t_map main)
 {
-	int flag_x;
-	int flag_y;
-	int flag;
+	int	flag_x;
+	int	flag_y;
+	int	flag;
 
 	flag_x = -1;
 	flag_y = -1;

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_info.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/29 16:46:36 by eokoshi           #+#    #+#             */
+/*   Updated: 2023/08/29 16:46:42 by eokoshi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "map.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,7 +33,6 @@ void	print_map_matrix(t_map parsed_map)
 		col = 0;
 		while (col < parsed_map.col_len)
 		{
-			// 各数値を3文字幅で出力（2桁数値＋1つのスペース）
 			printf("%3d", parsed_map.map[row][col]);
 			col++;
 		}
