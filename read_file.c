@@ -6,12 +6,11 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:47:14 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 14:54:35 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:23:13 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <fcntl.h>
-#include <stdlib.h>
-#include <unistd.h>
+
+#include "map.h"
 
 // Copies n bytes from source to destination.
 // This is a basic implementation of the standard memcpy function.

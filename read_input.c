@@ -6,17 +6,10 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:05:22 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 16:05:23 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:21:23 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "map.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-
-char	*copy_to_new_memory(char *content, char *buffer, ssize_t total_size,
-			ssize_t bytes_read);
 
 char	*read_input(void)
 {

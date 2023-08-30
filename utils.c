@@ -6,11 +6,11 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:50 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 16:04:04 by tshigeta         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:21:59 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "map.h"
 
 // Copies up to n characters from the string pointed to by src to dest.
 //

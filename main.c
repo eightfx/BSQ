@@ -6,39 +6,11 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:30 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 16:10:44 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:20:10 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-
-void	put_str(char *str);
-t_map	parse_map(char *str);
-void	print_map_matrix(t_map parsed_map);
-void	create_square(t_map main);
-int		solve(t_map main);
-char	*read_file_into_str(char *path);
-int		is_valid_map(char *str);
-void	get_answer(t_map square_map);
-
-char	*read_input(void);
-// int	main(void)
-// {
-// 	char	*str;
-// 	t_map	map;
-
-// 	str = read_file_into_str("map.txt");
-// 	map = parse_map(str);
-// 	get_answer(map);
-// 	printf("\n\n");
-// 	solve(map);
-// 	create_square(map);
-// 	get_answer(map);
-// }
 
 void	main_0(void)
 {

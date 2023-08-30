@@ -6,19 +6,10 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 13:44:48 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 14:52:45 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:20:54 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "map.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-int		ft_strlen(char *str);
-void	put_str(char *str);
-char	*ft_strchr(char *s, int c);
-char	*ft_strncpy(char *dest, char *src, size_t n);
-int		ft_atoi(char *str);
 
 // Parses the header information
 // from the given string and fills the t_map struct.

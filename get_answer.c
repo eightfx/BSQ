@@ -6,11 +6,10 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:04 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 14:33:15 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:18:30 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "map.h"
-#include <unistd.h>
 
 // Outputs a single character based on the value at a given position in the map.
 // This function writes the appropriate

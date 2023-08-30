@@ -6,19 +6,11 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:12 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 16:10:04 by tshigeta         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:26:47 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
 #include "map.h"
-
-char	*ft_strchr(char *s, int c);
-t_map	parse_map(char *str);
-char	*ft_strchr(char *s, int c);
-int		is_at_least_one_row(char *str);
-int		is_valid_line(char *str);
 
 // Skips the header of the map string.
 // This function returns a pointer that skips over the header and points
@@ -40,24 +32,6 @@ char	*skip_header(char *str)
 	else
 		ptr = NULL;
 	return (ptr);
-}
-
-// Checks if the last character of the map string is a newline character.
-// This function verifies if the map string terminates with a newline character.
-//
-// @args:
-// - str: Pointer to the start of the map string which includes the header.
-//
-// @returns:
-// - int: Returns 1 if the last character is a newline, 0 otherwise.
-int	is_newline_at_end(char *str)
-{
-	char	*new_str;
-
-	new_str = skip_header(str);
-	if (new_str == NULL)
-		return (0);
-	return (new_str[strlen(new_str) - 1] == '\n');
 }
 
 // Validates the characters used in the map.
@@ -85,8 +59,7 @@ int	is_valid_characters(char *str)
 	ptr = new_str;
 	while (*ptr != '\0')
 	{
-		if (*ptr != str[len - 3] && *ptr != str[len - 2]
-			&& *ptr != '\n')
+		if (*ptr != str[len - 3] && *ptr != str[len - 2] && *ptr != '\n')
 			return (0);
 		ptr++;
 	}
@@ -142,8 +115,8 @@ int	is_valid_member(char *str)
 	i = 0;
 	while (str[len] != '\n' && str[len] != '\0')
 		len++;
-	if (str[len - 1] == str[len - 2] || str[len - 1] == str[len - 3]
-		|| str[len - 2] == str[len - 3])
+	if (str[len - 1] == str[len - 2] || str[len - 1] == str[len - 3] || str[len
+		- 2] == str[len - 3])
 		return (0);
 	return (1);
 }
