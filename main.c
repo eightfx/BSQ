@@ -6,7 +6,7 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:30 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 17:28:28 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 17:40:48 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ void	main_1(int argc, char **argv)
 	{
 		str = read_file_into_str(argv[i + 1]);
 		str_sub = str;
-		if (str == NULL)
-			put_error();
-		else if (!is_valid_map(str))
+		if (str == NULL || !is_valid_map(str))
 			put_error();
 		else
 		{
