@@ -6,15 +6,15 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:30 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 15:53:03 by tshigeta         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:10:44 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "map.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "map.h"
+#include <unistd.h>
 
 void	put_str(char *str);
 t_map	parse_map(char *str);
@@ -25,6 +25,7 @@ char	*read_file_into_str(char *path);
 int		is_valid_map(char *str);
 void	get_answer(t_map square_map);
 
+char	*read_input(void);
 // int	main(void)
 // {
 // 	char	*str;
@@ -42,21 +43,25 @@ void	get_answer(t_map square_map);
 void	main_0(void)
 {
 	t_map	map;
-	char	buffer[1024];
-	ssize_t	bytes_read;
+	char	*buffer;
 
-	bytes_read = read(STDIN_FILENO, buffer, sizeof(buffer) - 1);
-	if (bytes_read >= 0)
-		buffer[bytes_read] = '\0';
+	buffer = read_input();
+	if (buffer == NULL)
+	{
+		put_str("map error\n");
+		return ;
+	}
 	if (!is_valid_map(buffer))
 	{
 		put_str("map error\n");
+		free(buffer);
 		return ;
 	}
 	map = parse_map(buffer);
 	solve(map);
 	create_square(map);
 	get_answer(map);
+	free(buffer);
 }
 
 void	main_1(int argc, char **argv)
