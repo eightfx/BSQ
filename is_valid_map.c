@@ -6,7 +6,7 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:12 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 17:48:06 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 17:49:54 by tshigeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ int	is_valid_member(char *str)
 	i = 0;
 	while (str[len] != '\n' && str[len] != '\0')
 		len++;
-	if (str[len - 1] == str[len - 2] || str[len - 1] == str[len - 3] || str[len
-		- 2] == str[len - 3])
+	if (str[len - 1] == str[len - 2] || str[len - 1] == str[len - 3]
+		|| str[len - 2] == str[len - 3])
 		return (0);
 	return (1);
 }
