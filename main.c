@@ -6,7 +6,7 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:30 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 16:35:55 by tshigeta         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:46:40 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	main_0(void)
 	buffer = read_input();
 	if (buffer == NULL)
 	{
-		put_str("map error\n");
+		put_error();
 		return ;
 	}
 	if (!is_valid_map(buffer))
 	{
-		put_str("map error\n");
+		put_error();
 		free(buffer);
 		return ;
 	}
@@ -48,17 +48,20 @@ void	main_1(int argc, char **argv)
 	i = 0;
 	while (i < argc - 1)
 	{
+		if (i != 0)
+			write(1, "\n", 1);
 		str = read_file_into_str(argv[i + 1]);
 		str_sub = str;
-		if (!is_valid_map(str))
-			put_str("map error\n");
+		if (str == NULL)
+			put_error();
+		else if (!is_valid_map(str))
+			put_error();
 		else
 		{
 			map = parse_map(str);
 			solve(map);
 			create_square(map);
 			get_answer(map);
-			write(1, "\n", 1);
 		}
 		i++;
 	}
