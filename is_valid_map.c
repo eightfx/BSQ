@@ -6,7 +6,7 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:12 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 16:35:25 by tshigeta         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:59:11 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int	is_valid_header(char *str)
 {
 	int	len;
 	int	i;
+	int	num;
 
 	len = 0;
 	i = 0;
@@ -97,12 +98,16 @@ int	is_valid_header(char *str)
 		i--;
 	}
 	i = 0;
+	num = 0;
 	while (i <= len - 4)
 	{
 		if (str[i] < '0' || '9' < str[i])
 			return (0);
+		num = num * 10 + str[i] - '0';
 		i++;
 	}
+	if (num <= 0)
+		return (0);
 	return (1);
 }
 
@@ -116,7 +121,7 @@ int	is_valid_member(char *str)
 	while (str[len] != '\n' && str[len] != '\0')
 		len++;
 	if (str[len - 1] == str[len - 2] || str[len - 1] == str[len - 3] || str[len
-			- 2] == str[len - 3])
+		- 2] == str[len - 3])
 		return (0);
 	return (1);
 }
