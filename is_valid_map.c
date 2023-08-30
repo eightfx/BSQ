@@ -6,7 +6,7 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:12 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 13:33:47 by tshigeta         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:33:12 by tshigeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	is_valid_characters(char *str)
 	ptr = new_str;
 	while (*ptr != '\0')
 	{
-		if (*ptr != str[len - 3] && *ptr != str[len - 2] && *ptr != str[len - 1]
+		if (*ptr != str[len - 3] && *ptr != str[len - 2]
 			&& *ptr != '\n')
 			return (0);
 		ptr++;
