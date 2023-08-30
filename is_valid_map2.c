@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   is_valid_map2.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/30 13:13:03 by eokoshi           #+#    #+#             */
+/*   Updated: 2023/08/30 13:13:04 by eokoshi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 char	*skip_header(char *str);
 
 int	is_valid_line(char *str)
@@ -25,4 +36,14 @@ int	is_valid_line(char *str)
 		new_str++;
 	}
 	return (1);
+}
+
+int	is_at_least_one_row(char *str)
+{
+	char	*new_str;
+
+	new_str = skip_header(str);
+	if (new_str == NULL)
+		return (0);
+	return (ft_strchr(new_str, '\n') != NULL);
 }

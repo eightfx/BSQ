@@ -6,7 +6,7 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:12 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/29 16:46:14 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 13:13:58 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -14,23 +14,20 @@
 #include <string.h>
 
 char	*ft_strchr(char *s, int c);
+t_map	parse_map(char *str);
+char	*ft_strchr(char *s, int c);
+int		is_at_least_one_row(char *str);
 
 char	*skip_header(char *str)
 {
 	char	*ptr;
 
 	ptr = ft_strchr(str, '\n');
-	return ((ptr != NULL) ? (ptr + 1) : NULL);
-}
-
-int	is_at_least_one_row(char *str)
-{
-	char	*new_str;
-
-	new_str = skip_header(str);
-	if (new_str == NULL)
-		return (0);
-	return (ft_strchr(new_str, '\n') != NULL);
+	if (ptr != NULL)
+		ptr = ptr + 1;
+	else
+		ptr = NULL;
+	return (ptr);
 }
 
 int	is_newline_at_end(char *str)
@@ -43,76 +40,69 @@ int	is_newline_at_end(char *str)
 	return (new_str[strlen(new_str) - 1] == '\n');
 }
 
-int	is_valid_characters(char *str, char empty_char, char obstacle_char,
-		char full_char)
+int	is_valid_characters(char *str)
 {
 	char	*new_str;
 	char	*ptr;
+	int		len;
 
+	ptr = str;
+	while (*ptr != '\n' && *ptr != '\0')
+		ptr++;
+	len = ptr - str;
 	new_str = skip_header(str);
 	if (new_str == NULL)
 		return (0);
 	ptr = new_str;
 	while (*ptr != '\0')
 	{
-		if (*ptr != empty_char && *ptr != obstacle_char && *ptr != full_char
+		if (*ptr != str[len - 3] && *ptr != str[len - 2] && *ptr != str[len - 1]
 			&& *ptr != '\n')
-		{
 			return (0);
-		}
 		ptr++;
 	}
 	return (1);
 }
 
-int	is_valid_header(char *str, char *empty_char, char *obstacle_char,
-		char *full_char)
+int	is_valid_header(char *str)
 {
-	char	*ptr;
-	int		rows;
+	int	len;
+	int	i;
 
-	ptr = str;
-	rows = 0;
-	// 行数の読み込み
-	while (*ptr >= '0' && *ptr <= '9')
-	{
-		rows = rows * 10 + (*ptr - '0');
-		ptr++;
-	}
-	*empty_char = *ptr++;
-	*obstacle_char = *ptr++;
-	*full_char = *ptr++;
-	if (*ptr != '\n' && *ptr != '\0')
-	{
+	len = 0;
+	i = 0;
+	while (str[len] != '\n' && str[len] != '\0')
+		len++;
+	if (len < 4)
 		return (0);
-	}
-	if (*empty_char == *obstacle_char || *empty_char == *full_char
-		|| *obstacle_char == *full_char)
+	i = len - 1;
+	while (i >= len - 3)
 	{
-		return (0);
+		if (str[i] < 32 || str[i] > 126)
+			return (0);
+		i--;
+	}
+	i = 0;
+	while (i <= len - 4)
+	{
+		if (str[i] < '0' || '9' < str[i])
+			return (0);
+		i++;
 	}
 	return (1);
 }
 
 int	is_valid_map(char *str)
 {
-	char	empty_char;
-	char	obstacle_char;
-	char	full_char;
-
-	if (!is_valid_header(str, &empty_char, &obstacle_char, &full_char))
+	if (!is_valid_header(str))
 		return (0);
-	if (!is_valid_characters(str, empty_char, obstacle_char, full_char))
+	if (!is_valid_characters(str))
 		return (0);
 	if (!is_newline_at_end(str))
 		return (0);
 	if (!is_at_least_one_row(str))
 		return (0);
+	if (!is_valid_line(str))
+		return (0);
 	return (1);
 }
-
-/* int	main(void) */
-/* { */
-/* 	char str[] = "10.ox\n....o..o..\n...o......\n....o...o.\n.........o\n..o......o\n..o.o...o.\n.o........\n....o.o.o.\nooo...o...\n.......o.o\n"; */
-/* 	printf("%d\n", is_valid_map(str)); */
-/* } */
