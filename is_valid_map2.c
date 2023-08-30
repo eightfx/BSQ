@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-char	*skip_header(char *str);
-char	*ft_strchr(char *s, int c);
+#include "map.h"
 
 // Validates the uniformity of line lengths in a map.
 // This function iterates through each line in the map, excluding the header,
@@ -69,4 +66,22 @@ int	is_at_least_one_row(char *str)
 	if (new_str == NULL)
 		return (0);
 	return (ft_strchr(new_str, '\n') != NULL);
+}
+
+// Checks if the last character of the map string is a newline character.
+// This function verifies if the map string terminates with a newline character.
+//
+// @args:
+// - str: Pointer to the start of the map string which includes the header.
+//
+// @returns:
+// - int: Returns 1 if the last character is a newline, 0 otherwise.
+int	is_newline_at_end(char *str)
+{
+	char	*new_str;
+
+	new_str = skip_header(str);
+	if (new_str == NULL)
+		return (0);
+	return (new_str[strlen(new_str) - 1] == '\n');
 }

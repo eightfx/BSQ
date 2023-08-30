@@ -6,12 +6,10 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:47:00 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 14:26:17 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:21:41 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "map.h"
-
-t_map	parse_map(char *str);
 
 // Checks if a cell is on the boundary of a map.
 // Returns 1 if the cell is on the boundary (either x_pos or y_pos is zero),
