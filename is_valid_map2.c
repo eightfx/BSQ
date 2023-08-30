@@ -3,13 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_map2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:13:03 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 13:13:04 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 13:59:11 by tshigeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
+
 char	*skip_header(char *str);
+char	*ft_strchr(char *s, int c);
 
 int	is_valid_line(char *str)
 {
@@ -35,7 +39,10 @@ int	is_valid_line(char *str)
 		count++;
 		new_str++;
 	}
-	return (1);
+	if (count == 1)
+		return (1);
+	else
+		return (0);
 }
 
 int	is_at_least_one_row(char *str)
@@ -47,3 +54,4 @@ int	is_at_least_one_row(char *str)
 		return (0);
 	return (ft_strchr(new_str, '\n') != NULL);
 }
+

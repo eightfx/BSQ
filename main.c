@@ -6,7 +6,7 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:30 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 13:29:38 by tshigeta         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:46:43 by tshigeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ char	*read_file_into_str(char *path);
 
 void	get_answer(t_map square_map);
 
-int	main(void)
-{
-	char	*str;
-	t_map	map;
+// int	main(void)
+// {
+// 	char	*str;
+// 	t_map	map;
 
-	str = read_file_into_str("map.txt");
-	map = parse_map(str);
-	get_answer(map);
-	printf("\n\n");
-	solve(map);
-	create_square(map);
-	get_answer(map);
-}
+// 	str = read_file_into_str("map.txt");
+// 	map = parse_map(str);
+// 	get_answer(map);
+// 	printf("\n\n");
+// 	solve(map);
+// 	create_square(map);
+// 	get_answer(map);
+// }
 
 int	main(int argc, char **argv)
 {
@@ -52,8 +52,6 @@ int	main(int argc, char **argv)
 		if (bytes_read >= 0)
 			buffer[bytes_read] = '\0';
 		map = parse_map(buffer);
-		get_answer(map);
-		printf("\n\n");
 		solve(map);
 		create_square(map);
 		get_answer(map);
@@ -66,8 +64,6 @@ int	main(int argc, char **argv)
 		{
 			str = read_file_into_str(argv[i + 1]);
 			map = parse_map(str);
-			get_answer(map);
-			printf("\n\n");
 			solve(map);
 			create_square(map);
 			get_answer(map);
