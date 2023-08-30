@@ -6,7 +6,7 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:12 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 16:26:47 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:35:25 by tshigeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ int	is_valid_member(char *str)
 	while (str[len] != '\n' && str[len] != '\0')
 		len++;
 	if (str[len - 1] == str[len - 2] || str[len - 1] == str[len - 3] || str[len
-		- 2] == str[len - 3])
+			- 2] == str[len - 3])
 		return (0);
 	return (1);
 }
@@ -143,6 +143,8 @@ int	is_valid_map(char *str)
 	if (!is_at_least_one_row(str))
 		return (0);
 	if (!is_valid_line(str))
+		return (0);
+	if (!row_error(parse_map(str), str))
 		return (0);
 	return (1);
 }
