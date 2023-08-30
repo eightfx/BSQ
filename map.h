@@ -6,7 +6,7 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:44:22 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 16:43:28 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 17:11:39 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MAP_H
@@ -48,4 +48,6 @@ char		*copy_to_new_memory(char *content, char *buffer, ssize_t total_size,
 char		*skip_header(char *str);
 int			is_newline_at_end(char *str);
 int			row_error(t_map main, char *str);
+void		free_map(t_map *map);
+
 #endif // MAP_H
