@@ -6,7 +6,7 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:13:03 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 13:59:11 by tshigeta         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:13:40 by tshigeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,3 @@ int	is_at_least_one_row(char *str)
 		return (0);
 	return (ft_strchr(new_str, '\n') != NULL);
 }
-

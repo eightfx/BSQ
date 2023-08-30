@@ -6,7 +6,7 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:30 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 16:10:44 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:24:34 by tshigeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string.h>
 #include <unistd.h>
 
+int		row_error(t_map main, char *str);
 void	put_str(char *str);
 t_map	parse_map(char *str);
 void	print_map_matrix(t_map parsed_map);
@@ -44,6 +45,7 @@ void	main_0(void)
 {
 	t_map	map;
 	char	*buffer;
+	char	*str_sub;
 
 	buffer = read_input();
 	if (buffer == NULL)
@@ -57,7 +59,10 @@ void	main_0(void)
 		free(buffer);
 		return ;
 	}
+	str_sub = buffer;
 	map = parse_map(buffer);
+	if (!row_error(map, buffer))
+		return ;
 	solve(map);
 	create_square(map);
 	get_answer(map);
@@ -68,17 +73,21 @@ void	main_1(int argc, char **argv)
 {
 	int		i;
 	char	*str;
+	char	*str_sub;
 	t_map	map;
 
 	i = 0;
 	while (i < argc - 1)
 	{
 		str = read_file_into_str(argv[i + 1]);
+		str_sub = str;
 		if (!is_valid_map(str))
 			put_str("map error\n");
 		else
 		{
 			map = parse_map(str);
+			if (!row_error(map, str_sub))
+				return ;
 			solve(map);
 			create_square(map);
 			get_answer(map);
