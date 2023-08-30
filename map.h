@@ -6,7 +6,7 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:44:22 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 18:00:20 by tshigeta         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:04:38 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,4 @@ int			row_error(char *str);
 void		free_map(t_map *map);
 int			is_valid_header(char *str);
 
-#endif // MAP_H
+#endif
