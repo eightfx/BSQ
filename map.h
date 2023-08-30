@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:44:22 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 17:45:10 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 18:00:20 by tshigeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef MAP_H
 # define MAP_H
 
@@ -47,7 +48,7 @@ char		*copy_to_new_memory(char *content, char *buffer, ssize_t total_size,
 				ssize_t bytes_read);
 char		*skip_header(char *str);
 int			is_newline_at_end(char *str);
-int			row_error(t_map main, char *str);
+int			row_error(char *str);
 void		free_map(t_map *map);
 int			is_valid_header(char *str);
 
