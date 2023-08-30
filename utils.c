@@ -6,11 +6,11 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:50 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 16:21:59 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:47:11 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
+#include <unistd.h>
 
 // Copies up to n characters from the string pointed to by src to dest.
 //
@@ -84,20 +84,13 @@ char	*ft_strchr(char *s, int c)
 	return (NULL);
 }
 
-// Writes a string to the standard output one character at a time.
-//
-// @args:
-// - str: Pointer to the string to write.
+// Writes a error to the standard output
 //
 // @returns:
 // - void
-void	put_str(char *str)
+void	put_error(void)
 {
-	while (*str)
-	{
-		write(2, str, 1);
-		str++;
-	}
+	write(2, "map error\n", 10);
 }
 
 // Calculates the length of the string str,

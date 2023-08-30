@@ -6,7 +6,7 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:44:22 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 16:30:08 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:43:28 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MAP_H
@@ -31,7 +31,7 @@ typedef struct t_map
 int			is_at_least_one_row(char *str);
 int			is_valid_line(char *str);
 char		*ft_strchr(char *s, int c);
-void		put_str(char *str);
+void		put_error(void);
 t_map		parse_map(char *str);
 void		print_map_matrix(t_map parsed_map);
 int			create_square(t_map main);
