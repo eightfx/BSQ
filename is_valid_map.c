@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:12 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 14:30:56 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 13:33:47 by tshigeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "map.h"
-#include <stdio.h>
+
 #include <stdlib.h>
 #include <string.h>
+#include "map.h"
 
 char	*ft_strchr(char *s, int c);
 t_map	parse_map(char *str);
