@@ -6,7 +6,7 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:30 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 15:47:04 by tshigeta         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:53:03 by tshigeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string.h>
 #include "map.h"
 
+void	put_str(char *str);
 t_map	parse_map(char *str);
 void	print_map_matrix(t_map parsed_map);
 void	create_square(t_map main);
@@ -48,7 +49,10 @@ void	main_0(void)
 	if (bytes_read >= 0)
 		buffer[bytes_read] = '\0';
 	if (!is_valid_map(buffer))
+	{
+		put_str("map error\n");
 		return ;
+	}
 	map = parse_map(buffer);
 	solve(map);
 	create_square(map);
@@ -66,12 +70,15 @@ void	main_1(int argc, char **argv)
 	{
 		str = read_file_into_str(argv[i + 1]);
 		if (!is_valid_map(str))
-			return ;
-		map = parse_map(str);
-		solve(map);
-		create_square(map);
-		get_answer(map);
-		write(1, "\n", 1);
+			put_str("map error\n");
+		else
+		{
+			map = parse_map(str);
+			solve(map);
+			create_square(map);
+			get_answer(map);
+			write(1, "\n", 1);
+		}
 		i++;
 	}
 }
