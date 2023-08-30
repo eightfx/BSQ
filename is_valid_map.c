@@ -6,7 +6,7 @@
 /*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:12 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 15:33:12 by tshigeta         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:10:04 by tshigeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,21 @@ int	is_valid_header(char *str)
 	return (1);
 }
 
+int	is_valid_member(char *str)
+{
+	int	len;
+	int	i;
+
+	len = 0;
+	i = 0;
+	while (str[len] != '\n' && str[len] != '\0')
+		len++;
+	if (str[len - 1] == str[len - 2] || str[len - 1] == str[len - 3]
+		|| str[len - 2] == str[len - 3])
+		return (0);
+	return (1);
+}
+
 // Validates the entire map, including its header and contents.
 // This function calls other validation functions to perform
 // comprehensive validation on the map.
@@ -145,6 +160,8 @@ int	is_valid_header(char *str)
 int	is_valid_map(char *str)
 {
 	if (!is_valid_header(str))
+		return (0);
+	if (!is_valid_member(str))
 		return (0);
 	if (!is_valid_characters(str))
 		return (0);

@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:50 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 14:36:12 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:04:04 by tshigeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
+
 #include <unistd.h>
 
 // Copies up to n characters from the string pointed to by src to dest.
@@ -95,7 +95,7 @@ void	put_str(char *str)
 {
 	while (*str)
 	{
-		write(1, str, 1);
+		write(2, str, 1);
 		str++;
 	}
 }
