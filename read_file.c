@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: tshigeta <tshigeta@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:47:14 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 16:23:13 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:59:38 by tshigeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ char	*copy_to_new_memory(char *content, char *buffer, ssize_t total_size,
 		free(content);
 	}
 	my_memcpy(new_content + total_size, buffer, bytes_read);
+	new_content[total_size + bytes_read] = '\0';
 	return (new_content);
 }
 
