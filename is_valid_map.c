@@ -6,9 +6,10 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:12 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 13:13:58 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 13:59:01 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "map.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -17,6 +18,7 @@ char	*ft_strchr(char *s, int c);
 t_map	parse_map(char *str);
 char	*ft_strchr(char *s, int c);
 int		is_at_least_one_row(char *str);
+int		is_valid_line(char *str);
 
 char	*skip_header(char *str)
 {

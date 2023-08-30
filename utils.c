@@ -6,11 +6,11 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:46:50 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/29 16:46:52 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 13:57:01 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <stddef.h>
+#include <unistd.h>
 
 char	*ft_strncpy(char *dest, char *src, size_t n)
 {
@@ -57,4 +57,25 @@ char	*ft_strchr(char *s, int c)
 	if (ch == '\0')
 		return ((char *)s);
 	return (NULL);
+}
+
+void	put_str(char *str)
+{
+	while (*str)
+	{
+		write(1, str, 1);
+		str++;
+	}
+}
+
+int	ft_strlen(char *str)
+{
+	int	len;
+
+	len = 0;
+	while (str[len] != '\0')
+	{
+		len++;
+	}
+	return (len);
 }
