@@ -6,13 +6,23 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:47:14 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/29 16:51:13 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 14:23:44 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
 
+// Copies n bytes from source to destination.
+// This is a basic implementation of the standard memcpy function.
+//
+// @args:
+// - dest: Pointer to the destination array.
+// - src: Pointer to the source array.
+// - n: Number of bytes to copy.
+//
+// @returns:
+// - void
 void	my_memcpy(char *dest, const char *src, size_t n)
 {
 	size_t	i;
@@ -25,7 +35,15 @@ void	my_memcpy(char *dest, const char *src, size_t n)
 	}
 }
 
-// ファイルを開く
+// Opens a file for reading.
+// This function tries to open a file with read-only access mode.
+//
+// @args:
+// - path: The path of the file to open. Should be a null-terminated string.
+//
+// @returns:
+// - int: File descriptor if the file is successfully opened.
+//   Returns -1 if the file cannot be opened.
 int	open_file(char *path)
 {
 	int	fd;
@@ -38,7 +56,20 @@ int	open_file(char *path)
 	return (fd);
 }
 
-// バッファから新しいメモリにデータをコピー
+// Copies existing content and buffer into a new dynamically allocated memory.
+// This function allocates a new memory block large enough to hold both the
+// existing content and the new bytes read from the buffer, and then performs
+// the copy operation.
+//
+// @args:
+// - content: Pointer to existing content. Could be NULL.
+// - buffer: Pointer to the read buffer.
+// - total_size: Size of the existing content.
+// - bytes_read: Number of bytes recently read into the buffer.
+//
+// @returns:
+// - char *: A pointer to a dynamically allocated string that contains both
+//   the existing content and the buffer. NULL if memory allocation fails.
 char	*copy_to_new_memory(char *content, char *buffer, ssize_t total_size,
 		ssize_t bytes_read)
 {
@@ -54,7 +85,17 @@ char	*copy_to_new_memory(char *content, char *buffer, ssize_t total_size,
 	return (new_content);
 }
 
-// ファイルからデータを読み取る
+// Read the contents of a file into a dynamically allocated string.
+// This function reads chunks of data from the file into a buffer,
+// and then copies each chunk into a dynamically allocated string.
+//
+// @args:
+// - path: The path of the file to read. Should be a null-terminated string.
+//
+// @returns:
+//  - char *: A pointer to a dynamically allocated string containing
+//    the file content.
+//   Returns NULL if the file cannot be opened or read.
 char	*read_file_into_str(char *path)
 {
 	int		fd;
