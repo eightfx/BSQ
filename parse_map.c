@@ -6,7 +6,7 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 13:44:48 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 14:39:05 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 14:52:45 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "map.h"
@@ -91,13 +91,9 @@ void	fill_map_array(char *str, t_map *map)
 	while (*ptr != '\0')
 	{
 		if (*ptr == map->obstacle)
-		{
 			map->map[row][col] = -1;
-		}
 		else if (*ptr == map->empty)
-		{
 			map->map[row][col] = 0;
-		}
 		else if (*ptr == '\n')
 		{
 			row++;

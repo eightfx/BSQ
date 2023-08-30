@@ -6,7 +6,7 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:13:03 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 14:27:27 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 14:53:50 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
@@ -37,9 +37,7 @@ int	is_valid_line(char *str)
 		if (*new_str == '\n')
 		{
 			if (log == 0)
-			{
 				log = count + 1;
-			}
 			else if (log != count)
 				return (0);
 			count = 0;

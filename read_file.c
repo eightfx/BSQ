@@ -6,7 +6,7 @@
 /*   By: eokoshi <eokoshi@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 16:47:14 by eokoshi           #+#    #+#             */
-/*   Updated: 2023/08/30 14:23:44 by eokoshi          ###   ########.fr       */
+/*   Updated: 2023/08/30 14:54:35 by eokoshi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fcntl.h>
@@ -50,9 +50,7 @@ int	open_file(char *path)
 
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
-	{
 		return (-1);
-	}
 	return (fd);
 }
 
